@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dine Restaurant</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+  </head>
+  <body>
+    <main>
+      <section class="section1">
+        <h2 class="section1-h heading">dine</h2>
+        <div class="section1-div1">
+          <div class="reservation">
+            <h3 class="section1-h3">Reservations</h3>
+            <p class="section1-p">
+              We can't wait to host you. If you have any<br />
+              special requirements please feel free to call on<br />
+              the phone number below. We'll be happy to <br />accomodate you.
+            </p>
+            <button class="mobile-button">RESERVE PLACE</button>
+          </div>
+          <div class="section1-div2">
+            <form>
+              <input
+                class="details"
+                type="text"
+                id="text"
+                name="text"
+                placeholder="Name"
+              />
+              <hr />
+              <input
+                class="details"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+              />
+              <hr />
+              <div class="date-div">
+                <label class="date-label" for="date">Pick a date</label>
+                <div class="date-sub-div">
+                  <input  type="number" id="quantity" name="quantity" min="1" max="31" placeholder="MM" class="date"/>
+                  <input type="number" id="quantity" name="quantity" min="1" max="12"  placeholder="DD" class="date" />
+                  <input type="number" id="quantity" name="quantity" min="2021" max="2080"  placeholder="YYYY" class="date" />
+                </div>
+              </div>
+              <div class="time-div">
+                <label class="date-label" for="time">Pick a time</label>
+                <div class="time-sub-div">
+                  <input type="number" id="quantity" name="quantity" min="00" max="12" placeholder="09" class="time" />
+                  <input type="number" id="quantity" name="quantity" min="01" max="60" placeholder="00" class="time" />
+                  <select name="time" id="time" class="time">
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                  </select>
+                </div>
+              </div>
+              <div class="people-count">
+                <input
+                  class="sub"
+                  type="button"
+                  value="-"
+                  onclick="button2()"
+                />
+                <span id="output-area"></span>
+                <input
+                  class="add"
+                  type="button"
+                  value="+"
+                  onclick="button1()"
+                />
+                <hr />
+              </div>
+              <div class="btn-div">
+                <button type="button" onclick="mySubmit1()">MAKE RESERVATION</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <img
+          class="section1-img"
+          src="./hero-bg-desktop.jpg"
+          alt="yummy-food"
+        />
+      </section>
+      <section class="section2">
+        <img
+          class="section2-img2"
+          src="./pattern-lines.svg"
+          alt=""
+        />
+      </section>
+      <section class="section3">
+        <h2 class="heading section3-heading">dine</h2>
+        <p class="para">
+          MARTHWAITE, SEDBERGH<br />CUMBRIA<br />+00 44 124 4567
+        </p>
+        <p class="para">
+          OPEN TIMES<br />MON - FRI: 09:00 AM - 10:00 PM<br />SAT - SUN: 09:00
+          AM - 11:30 PM
+        </p>
+      </section>
+    </main>
+  
+    </script>
+    <script>
+        function mySubmit(){
+          alert("Your reservation has been made!!!")
+      }
+      var y = 0;
+      var x = `${y} people`;
+
+      document.getElementById("output-area").innerHTML = x;
+
+      function button1() {
+        if (y >= 0) {
+          ++y;
+          if (y === 1) {
+            document.getElementById("output-area").innerHTML = `${y} person`;
+          } else {
+            document.getElementById("output-area").innerHTML = `${y} people`;
+          }
+        }
+      }
+
+      function button2() {
+        if (y > 0) {
+          --y;
+          if (y === 0) {
+            document.getElementById("output-area").innerHTML = `${y} people`;
+          } else if (y === 1) {
+            document.getElementById("output-area").innerHTML = `${y} person`;
+          } else {
+            document.getElementById("output-area").innerHTML = `${y} people`;
+          }
+        }
+      }
+      function mySubmit1(){
+        swal({
+       title: "Reservation Successful", 
+       text: "Happy Dining!!!!", 
+       type: "success"
+     },
+   function(){ 
+       location.reload();
+   }
+);
+    } 
+    </script>
+  </body>
+</html>
